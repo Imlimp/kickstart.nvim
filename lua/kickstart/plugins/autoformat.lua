@@ -66,7 +66,7 @@ return {
                 return false
                 -- return c.id == client.id
               end,
-              bufnr = bufnr
+              bufnr = bufnr,
             }
           end,
         })
