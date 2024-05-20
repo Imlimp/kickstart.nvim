@@ -227,7 +227,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -911,3 +911,21 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+vim.cmd [[
+  if &diff
+    " Show three-way diff
+    wincmd J
+
+    " Navigate through diff
+    nnoremap <silent> <leader>do :diffget LOCAL<CR>
+    nnoremap <silent> <leader>dp :diffget REMOTE<CR>
+    nnoremap <silent> <leader>db :diffget BASE<CR>
+    nnoremap <silent> <leader>da :diffput<CR>
+  endif
+]]
+
+vim.o.expandtab = true
+vim.o.smartindent = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
